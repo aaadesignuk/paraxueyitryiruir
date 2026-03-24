@@ -1,0 +1,850 @@
+/* ==========================================================
+   PARALETE — PREMIUM UI STYLESHEET (FINAL CLEAN BUILD)
+   ----------------------------------------------------------
+   - Dark premium aesthetic
+   - Clean sections and dashboards
+   - Modern forms + tables
+   - Admin stats cards + responsive grid
+   - Employer Job View enhancements included
+   - Skills/Tasks grid FIXED (desktop + mobile)
+========================================================== */
+
+/* -----------------------------
+   External Fonts / Icons
+----------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+
+/* -----------------------------
+   Design Tokens
+----------------------------- */
+:root{
+  --bg-main:#0f0f0f;
+  --bg-dashboard:#161616;
+  --bg-card:rgba(255,255,255,.06);
+  --bg-field:rgba(255,255,255,.08);
+
+  --text-main:#FFFCE8;
+  --text-muted:rgba(255,255,255,.65);
+
+  --brand:#ff6b6b;
+  --brand-soft:#f2a07d;
+
+  --stroke:rgba(255,255,255,.14);
+  --shadow:0 30px 80px rgba(0,0,0,.6);
+
+  --radius-lg:26px;
+  --radius-md:18px;
+  --radius-sm:12px;
+}
+
+
+/* -----------------------------
+   Base Reset
+----------------------------- */
+*{ box-sizing:border-box; }
+
+html, body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  font-family:'Lato',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  color:var(--text-main);
+
+  background:
+    radial-gradient(circle at 20% 10%, rgba(221,64,58,.22), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,.08), transparent 40%),
+    linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.9)),
+    url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80');
+
+  background-size:cover;
+  background-position:center;
+}
+
+
+/* -----------------------------
+   Global Layout
+----------------------------- */
+.app{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:48px 28px;
+}
+
+
+/* -----------------------------
+   Cards / Containers
+----------------------------- */
+.card{
+  width:min(520px,94vw);
+  background:linear-gradient(180deg,#242424,#1c1c1c);
+  border-radius:22px;
+  padding:42px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--stroke);
+}
+
+.dashboard{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  background:linear-gradient(180deg,#1a1a1a,#141414);
+  border-radius:var(--radius-lg);
+  padding:56px 56px 64px;
+  border:1px solid var(--stroke);
+  box-shadow:var(--shadow);
+}
+
+.stats-row-title{
+  grid-column: 1 / -1;
+  margin: 6px 0 -6px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: .75;
+}
+
+.stat-card--alert{
+  border-color: rgba(255, 77, 77, .65) !important;
+  background: rgba(255, 0, 0, .10) !important;
+}
+
+/* Dashboard row headings: text with a line to the right (not under) */
+.stats-row-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+
+  margin: 22px 0 10px;
+  padding: 0 2px;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: .82;
+}
+
+.stats-row-title::after{
+  content:"";
+  height: 1px;
+  flex: 1 1 auto;
+  background: rgba(255,255,255,.12);
+  transform: translateY(1px); /* tiny vertical alignment tweak */
+}
+
+/* First heading smaller top gap */
+.stats-row-title:first-of-type{
+  margin-top: 6px;
+}
+
+/* Disputes highlight */
+.stat-card--alert{
+  border-color: rgba(255, 77, 77, .65) !important;
+  background: rgba(255, 0, 0, .10) !important;
+}
+
+
+
+  /* divider */
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+/* First heading shouldn't have huge top gap */
+.stats-row-title:first-of-type{
+  margin-top: 6px;
+}
+
+/* Optional: a little breathing room under each row grid */
+.stats-grid{
+  margin-bottom: 8px;
+}
+
+/* Disputes highlight */
+.stat-card--alert{
+  border-color: rgba(255, 77, 77, .65) !important;
+  background: rgba(255, 0, 0, .10) !important;
+}
+
+/* -----------------------------
+   Topbar / Branding
+----------------------------- */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:28px;
+  margin-bottom:34px;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:.6px;
+}
+
+.logo span{
+  color:var(--brand);
+}
+
+.dashboard-subtitle{
+  margin-top:8px;
+  font-size:15px;
+  color:var(--text-muted);
+}
+
+.topbar a{
+  color:var(--brand-soft);
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:4px;
+  white-space:nowrap;
+}
+
+/* Timesheet actions: keep buttons on one line where possible */
+.ts-actions{
+  display:flex;
+  gap:8px;
+  justify-content:flex-end;
+  align-items:center;
+  flex-wrap:wrap; /* will wrap only if tiny screen */
+}
+
+/* Override global .btn width=100% inside action cells */
+.ts-actions .btn{
+  width:auto !important;
+}
+
+/* On very small screens, reduce gap slightly */
+@media (max-width:520px){
+  .ts-actions{ gap:6px; }
+}
+
+
+/* -----------------------------
+   Sections (Core Panels)
+----------------------------- */
+.section{
+  background:var(--bg-card);
+  border-radius:22px;
+  padding:28px 28px 32px;
+  border:1px solid var(--stroke);
+  margin:28px 0;
+}
+
+.section-title{
+  font-size:22px;
+  font-weight:900;
+  margin:0 0 16px;
+}
+
+.section-hint{
+  font-size:14px;
+  color:var(--text-muted);
+  margin:20px 0 14px;
+}
+
+
+/* -----------------------------
+   Forms
+----------------------------- */
+label{
+  display:block;
+  font-size:13px;
+  color:var(--text-muted);
+  margin:16px 0 10px;
+}
+
+.field{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:58px;               /* ✅ was fixed height, now flexible */
+  padding:0 18px;
+  border-radius:16px;
+  background:var(--bg-field);
+  border:1px solid var(--stroke);
+}
+
+.field input,
+.field select{
+  width:100%;
+  height:58px;                   /* ✅ keeps form inputs consistent */
+  background:transparent;
+  border:0;
+  outline:none;
+  color:var(--text-main);
+  font-size:16px;
+}
+
+textarea{
+  width:100%;
+  min-height:180px;
+  padding:18px;
+  border-radius:18px;
+  background:var(--bg-field);
+  border:1px solid var(--stroke);
+  outline:none;
+  color:var(--text-main);
+  font-size:16px;
+  line-height:1.6;
+}
+
+.field select option{
+  background:#fff;
+  color:#111;
+}
+
+
+/* -----------------------------
+   Buttons
+----------------------------- */
+.btn,
+button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:58px;
+  padding:0 22px;
+  border-radius:16px;
+  border:0;
+  cursor:pointer;
+  font-weight:900;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  background:var(--brand); /* Now Dark Green */
+  color:#fff;
+  width:100%;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+
+.btn:hover,
+button:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.05);
+  box-shadow:0 14px 32px rgba(0,0,0,.45);
+}
+
+.btn.secondary{
+  /* Changed from Grey to Light Blue */
+  background:#F88379; 
+  color:#111; /* Darker text for readability on light blue */
+  border:1px solid var(--stroke);
+  text-transform:none;
+  font-weight:700;
+}
+
+.btn.small{
+  min-height:44px;
+  width:auto;
+  font-size:14px;
+  text-transform:none;
+  padding:0 14px;
+}
+
+/* Extra-small buttons for tight table layouts */
+.btn.micro{
+  min-height:34px;
+  width:auto;
+  font-size:12px;
+  text-transform:none;
+  letter-spacing:0;
+  padding:0 10px;
+  border-radius:12px;
+}
+
+
+/* -----------------------------
+   Tables
+----------------------------- */
+.table-wrap{
+  background:rgba(0,0,0,.18);
+  border-radius:18px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  margin-top:18px;
+}
+
+/* Tables: prevent button width=100% from blowing out columns */
+.table .btn{
+  width:auto;
+  min-height:36px;
+  padding:0 12px;
+  font-size:12px;
+  text-transform:none;
+  letter-spacing:0;
+  border-radius:12px;
+}
+
+/* Checkbox grid used in Profile Details */
+.check-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:10px;
+  width:100%;
+}
+@media(max-width:900px){
+  .check-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media(max-width:520px){
+  .check-grid{ grid-template-columns: 1fr; }
+}
+.check-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 12px;
+  border-radius:14px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  cursor:pointer;
+}
+.check-item input{ transform:scale(1.05); }
+.check-item span{ color:var(--text-main); font-size:14px; }
+
+.table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.table th{
+  font-size:13px;
+  letter-spacing:1px;
+  padding:18px 16px;
+  text-transform:uppercase;
+  font-weight:900;
+  color:rgba(255,255,255,.8);
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+
+.table td{
+  font-size:16px;
+  padding:20px 16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.table a{
+  font-weight:800;
+  color:var(--brand-soft);
+}
+.table th,
+.table td{
+  text-align:left;
+}
+
+
+/* -----------------------------
+   Flash Messages
+----------------------------- */
+.flash{
+  padding:16px 18px;
+  border-radius:16px;
+  margin:22px 0;
+  font-size:15px;
+  border:1px solid var(--stroke);
+  background:rgba(255,255,255,.08);
+}
+
+.flash--success{
+  background:rgba(0,255,140,.14);
+  border-color:rgba(0,255,140,.28);
+}
+
+.flash--error{
+  background:rgba(255,0,0,.16);
+  border-color:rgba(255,0,0,.30);
+}
+
+.flash--info{
+  border-color:rgba(255,255,255,.22);
+}
+
+
+/* ==========================================================
+   ADMIN DASHBOARD STAT CARDS
+========================================================== */
+.stats-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:16px;
+  margin-top:14px;
+}
+
+.stat-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:20px 18px;
+}
+
+.stat-number{
+  font-size:44px;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:.5px;
+}
+
+.stat-label{
+  margin-top:10px;
+  font-size:13px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:.75;
+}
+
+
+/* -----------------------------
+   Footer
+----------------------------- */
+.footer{
+  position:fixed;
+  bottom:16px;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:12px;
+  color:rgba(255,255,255,.45);
+  pointer-events:none;
+}
+
+
+/* -----------------------------
+   Responsive
+----------------------------- */
+@media (max-width: 900px){
+  .dashboard{
+    padding:40px 24px 48px;
+  }
+
+  .topbar{
+    flex-direction:column;
+    gap:18px;
+  }
+
+  .stats-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .stat-number{
+    font-size:36px;
+  }
+}
+
+
+/* ==========================================================
+   EMPLOYER JOB VIEW ENHANCEMENTS
+========================================================== */
+.grid-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:14px;
+}
+
+@media(max-width:900px){
+  .grid-2,.grid-3{ grid-template-columns:1fr; }
+}
+
+.muted-line{
+  opacity:.75;
+  margin-top:-6px;
+}
+
+.checkbox-row{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.checkbox{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  padding:14px 14px;
+}
+
+.checkbox input{
+  transform:scale(1.1);
+}
+
+.job-scope{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:12px;
+  margin-top:16px;
+}
+
+@media(max-width:900px){
+  .job-scope{ grid-template-columns: 1fr 1fr; }
+}
+
+.scope-item{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  padding:14px 14px;
+}
+
+.scope-label{
+  font-size:12px;
+  letter-spacing:.9px;
+  text-transform:uppercase;
+  opacity:.7;
+}
+
+.scope-value{
+  margin-top:8px;
+  font-size:18px;
+  font-weight:900;
+}
+
+
+/* ==========================================================
+   ✅ SKILLS / TASKS (PERFECT FIX)
+   - Uses its own rounded container
+   - Two columns desktop
+   - One column mobile
+   - Auto-height rows
+   - Checkbox always aligned
+========================================================== */
+
+.check-wrap{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:16px;
+  padding:14px;
+}
+
+.check-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:12px 16px;
+}
+
+@media (max-width: 520px){
+  .check-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.check-item{
+  display:flex;
+  align-items:flex-start;           /* ✅ fixes wrapped labels */
+  gap:12px;
+  padding:14px 14px;                /* ✅ top/bottom padding */
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+  line-height:1.25;
+  cursor:pointer;
+  min-height:54px;                  /* ✅ stops squashed pills */
+}
+
+.check-item input[type="checkbox"]{
+  width:16px !important;
+  height:16px !important;
+  margin:2px 0 0 0 !important;
+  flex:0 0 16px !important;
+  transform:none !important;        /* ✅ kills browser scaling weirdness */
+  accent-color: var(--brand);
+}
+
+.check-item span{
+  display:block;
+  margin:0;
+  padding:0;
+  white-space:normal;
+  word-break:break-word;
+}
+
+
+
+
+/* spacing between stacked form blocks */
+.field + label{
+  margin-top:22px;
+}
+
+/* ensure check-wrap has breathing room */
+.check-wrap{
+  margin-top:10px;
+}
+
+
+/* remove default purple link behaviour */
+a{
+  color: var(--brand-soft);
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* file input alignment fix */
+.field--file{
+  align-items:center;
+}
+
+.field--file input[type="file"]{
+  height:auto;             /* prevent stretching */
+  padding:0;
+  font-size:14px;
+  color: rgba(255,255,255,.85);
+}
+/* === Client request: make orange/warning buttons green === */
+.btn.orange,
+.btn.warning,
+.btn.amber,
+.btn.queried,
+button.orange,
+button.warning{
+  background:#16a34a !important;
+  border-color:#16a34a !important;
+  color:#fff !important;
+}
+
+/* --- Paralegal profile: Task Skills tabs row --- */
+.skill-tabs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;              /* allows 2 rows on smaller widths */
+  margin: 12px 0 16px;
+}
+
+.skill-tab {
+  width: auto !important;       /* kills any width:100% inheritance */
+  display: inline-flex;         /* ensures it can't behave like a block */
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Optional: if you want a true single-row tab strip instead of wrapping */
+@media (max-width: 900px) {
+  .skill-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+  .skill-tab { flex: 0 0 auto; }
+}
+/* ==========================================================
+   PROFILE DETAILS — TASK SKILLS CATEGORY TABS (HORIZONTAL)
+   Fix: global button{width:100%} was forcing vertical stack
+========================================================== */
+
+/* Wrapper around category buttons */
+.skill-tabs{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:12px 0 16px;
+}
+
+/* Override global width:100% ONLY within the tab strip */
+.skill-tabs .btn,
+.skill-tabs button,
+.skill-tabs a{
+  width:auto !important;
+  display:inline-flex;
+  flex:0 0 auto;
+}
+
+/* Mobile: single row scroll strip (optional but clean) */
+@media (max-width: 900px){
+  .skill-tabs{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:6px;
+  }
+}
+/* Task skills tabs */
+.skill-tabs{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+/* Ensure tabs NEVER become full-width */
+.skill-tab{
+  width:auto !important;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.06);
+  color:var(--text-main);
+  font-weight:800;
+  cursor:pointer;
+  text-transform:none;     /* prevents your global uppercase button style */
+  letter-spacing:0;
+  min-height:44px;         /* nicer than 58px for tabs */
+}
+.job-create-tabs .tab-nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.job-create-tabs .tab-btn {
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid rgba(255,255,255,.15);
+  background:rgba(255,255,255,.05);
+  border-radius:20px;
+  cursor:pointer;
+  font-size:14px;
+  white-space:nowrap;
+}
+
+.job-create-tabs .tab-btn.active {
+  background:#1f7a4d;
+  border-color:#1f7a4d;
+  color:#fff;
+}
+
+.job-create-tabs .tab-content {
+  display:none;
+}
+
+.job-create-tabs .tab-content.active {
+  display:block;
+}
+.topbar a.active {
+  color: #16a34a !important;
+  font-weight: 700;
+  border-bottom: 2px solid #16a34a;
+  padding-bottom: 2px;
+}
+
+.topbar a.active span,
+.topbar a.active svg {
+  color: #16a34a !important;
+}

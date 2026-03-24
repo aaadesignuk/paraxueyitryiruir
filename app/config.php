@@ -1,0 +1,13 @@
+<?php
+define('APP_NAME','Paralete');
+define('APP_BASE_URL','');
+define('ROLE_ADMIN','A');
+define('ROLE_EMPLOYER','E');
+define('ROLE_PARALEGAL','P');
+define('DB_HOST','localhost');
+define('DB_NAME','paralete_apz_009');
+define('DB_USER','Ap_uZr_99_9');
+define('DB_PASS','?X7qJ0yc~rysDk0i');
+define('DB_CHARSET','utf8mb4');
+define('DB_DSN','mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset='.DB_CHARSET);
+define('PLATFORM_COMMISSION_PCT',20);
