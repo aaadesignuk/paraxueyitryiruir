@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paralete | Terms & Conditions (Paralegals)</title>
+  <meta name="description" content="Paralete Terms & Conditions for Paralegals." />
+
+  <!-- Optional: match app font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* === PARALETE TOKENS (from app CSS) === */
+    :root{
+      --bg-main:#0f0f0f;
+      --bg-dashboard:#161616;
+      --bg-card:rgba(255,255,255,.06);
+      --bg-field:rgba(255,255,255,.08);
+
+      --text-main:#FFFCE8;
+      --text-muted:rgba(255,255,255,.65);
+
+      --brand:#ff6b6b;
+      --brand-soft:#f2a07d;
+
+      --stroke:rgba(255,255,255,.14);
+      --shadow:0 30px 80px rgba(0,0,0,.6);
+
+      --radius-lg:26px;
+      --radius-md:18px;
+      --radius-sm:12px;
+
+      --max: 1200px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:'Lato',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+      color:var(--text-main);
+
+      background:
+        radial-gradient(circle at 20% 10%, rgba(221,64,58,.22), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.08), transparent 40%),
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.9)),
+        url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-position:center;
+      background-attachment: fixed;
+    }
+
+    a{ color:var(--brand-soft); text-decoration:none; }
+    a:hover{ text-decoration:underline; text-underline-offset:4px; }
+
+    .app{
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 28px;
+    }
+
+    .dashboard{
+      width:100%;
+      max-width:var(--max);
+      margin:auto;
+      background:linear-gradient(180deg,#1a1a1a,#141414);
+      border-radius:var(--radius-lg);
+      padding:40px 40px 44px;
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:24px;
+      margin-bottom:26px;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:900;
+      letter-spacing:.6px;
+      line-height:1.1;
+    }
+    .logo span{ color:var(--brand); }
+
+    .subtitle{
+      margin-top:8px;
+      font-size:15px;
+      color:var(--text-muted);
+      max-width: 78ch;
+    }
+
+    .top-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .pill{
+      font-size:12px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.78);
+      white-space:nowrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:0 14px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      color:var(--text-main);
+      font-weight:800;
+      cursor:pointer;
+      text-transform:none;
+      letter-spacing:0;
+      transition:transform .12s ease, filter .12s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+    .btn.primary{
+      border:0;
+      background:var(--brand);
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:18px;
+      align-items:start;
+      margin-top:10px;
+    }
+
+    .panel{
+      background:var(--bg-card);
+      border:1px solid var(--stroke);
+      border-radius:22px;
+      padding:18px;
+    }
+
+    .toc{
+      position:sticky;
+      top:18px;
+      max-height: calc(100vh - 90px);
+      overflow:auto;
+      padding:16px;
+    }
+
+    .toc-title{
+      font-size:12px;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      opacity:.78;
+      margin: 0 0 12px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .toc-title::after{
+      content:"";
+      height:1px;
+      flex:1;
+      background:rgba(255,255,255,.12);
+      transform: translateY(1px);
+    }
+
+    .toc a{
+      display:block;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid transparent;
+      color:var(--text-main);
+      opacity:.92;
+    }
+    .toc a:hover{
+      border-color:rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      text-decoration:none;
+    }
+
+    .content{ padding:18px 22px; }
+
+    .section{
+      background:transparent;
+      border-radius:0;
+      padding:16px 0 22px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      margin:0;
+    }
+    .section:last-child{ border-bottom:none; padding-bottom:6px; }
+
+    h1,h2,h3{ margin:0; }
+    h2{
+      font-size:20px;
+      font-weight:900;
+      margin-bottom:10px;
+      letter-spacing:.2px;
+    }
+    h3{
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      margin:16px 0 8px;
+      opacity:.95;
+    }
+
+    p{ margin:10px 0 0; color:rgba(255,255,255,.86); }
+    .muted{ color:var(--text-muted); }
+
+    ul{ margin:10px 0 0 18px; }
+    li{ margin:7px 0; color:rgba(255,255,255,.88); }
+
+    .callout{
+      margin-top:14px;
+      padding:14px 14px;
+      border-radius:18px;
+      border:1px solid rgba(255,107,107,.35);
+      background: rgba(255,107,107,.10);
+    }
+    .callout b{
+      display:block;
+      margin-bottom:6px;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+
+    .accept{
+      margin-top:14px;
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(242,160,125,.35);
+      background: rgba(242,160,125,.10);
+    }
+
+    .footer{
+      margin-top:22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      padding:16px 18px;
+      border-radius:22px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+    }
+    .fineprint{ font-size:12px; color:rgba(255,255,255,.55); }
+
+    @media (max-width: 980px){
+      .dashboard{ padding:30px 20px 34px; }
+      .grid{ grid-template-columns: 1fr; }
+      .toc{ position:relative; top:auto; max-height:none; }
+    }
+
+    @media print{
+      body{ background:#fff; color:#000; }
+      .dashboard, .panel{ box-shadow:none; background:#fff; border-color:#ddd; }
+      a{ color:#000; }
+      .top-actions, .toc{ display:none !important; }
+      p, li{ color:#000; }
+      .callout, .accept{ border-color:#ddd; background:#f6f6f6; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <div class="dashboard" id="top">
+      <div class="topbar">
+        <div>
+          <div class="logo">Paralete<span>.</span></div>
+          <div class="subtitle">
+            <b>Terms & Conditions — Paralegals</b><br>
+            These Terms govern your access to and use of the Paralete platform as a provider of paralegal or legal support services.
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <div class="pill">Last Updated: 21.02.2026</div>
+          <a class="btn" href="terms-employers.html">View Employer Terms</a>
+          <a class="btn" href="#acceptance">Jump to Acceptance</a>
+          <button class="btn primary" type="button" onclick="window.print()">Print / Save PDF</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <aside class="panel toc" aria-label="Quick navigation">
+          <div class="toc-title">Quick Navigation</div>
+          <a href="#s1">1. Introduction</a>
+          <a href="#s2">2. Definitions</a>
+          <a href="#s3">3. Platform Role</a>
+          <a href="#s4">4. Eligibility and Account</a>
+          <a href="#s5">5. Use of Platform</a>
+          <a href="#s6">6. Service Engagement</a>
+          <a href="#s7">7. Timesheets, Invoicing and Payment</a>
+          <a href="#s8">8. Service Delivery and Revisions</a>
+          <a href="#s9">9. Fees and Payments</a>
+          <a href="#s10">10. Non-Circumvention</a>
+          <a href="#s11">11. Cancellation and Termination of Contracts</a>
+          <a href="#s12">12. Confidentiality</a>
+          <a href="#s13">13. Data Protection (GDPR)</a>
+          <a href="#s14">14. Intellectual Property</a>
+          <a href="#s15">15. Non-Solicitation / Non-Circumvention</a>
+          <a href="#s16">16. Warranties</a>
+          <a href="#s17">17. Liability</a>
+          <a href="#s18">18. No Partnership</a>
+          <a href="#s19">19. Indemnity</a>
+          <a href="#s20">20. Termination by Paralete</a>
+          <a href="#s21">21. Dispute Resolution</a>
+          <a href="#s22">22. Force Majeure</a>
+          <a href="#s23">23. Assignment</a>
+          <a href="#s24">24. Notices</a>
+          <a href="#s25">25. Severability</a>
+          <a href="#s26">26. Waiver</a>
+          <a href="#s27">27. Entire Agreement</a>
+          <a href="#s28">28. Amendments</a>
+          <a href="#s29">29. Governing Law</a>
+        </aside>
+
+        <main class="panel content" aria-label="Paralegal terms content">
+          <section class="section" id="s1">
+            <h2>1. Introduction</h2>
+            <p>1.1 These Paralegal Terms and Conditions (“Terms”) govern your access and use of the Paralete.com platform (“Platform”), operated by Paralete (“we”, “us”, “our”), as a provider of paralegal or legal support services (“Paralegal”, “you”).</p>
+            <p>1.2 By registering as a Paralegal or using the Platform, you accept these Terms. If you do not agree, do not use the Platform.</p>
+            <p>1.3 These Terms form a legally binding agreement between you and Paralete. Additional policies on the Platform form part of these Terms.</p>
+          </section>
+
+          <section class="section" id="s2">
+            <h2>2. Definitions</h2>
+            <ul>
+              <li><b>Account</b> – your Paralegal profile on the Platform.</li>
+              <li><b>Employer/Client</b> – any user seeking Services.</li>
+              <li><b>Services</b> – paralegal/legal support services you provide.</li>
+              <li><b>Contract</b> – agreement between you and Employer for Services.</li>
+              <li><b>Fees</b> – amount payable by Employer to you.</li>
+              <li><b>Platform Fee</b> – commission or charges retained by Paralete.</li>
+              <li><b>Deliverables</b> – work product resulting from Services.</li>
+              <li><b>Confidential Information</b> – non-public information.</li>
+              <li><b>GDPR</b> – UK GDPR and Data Protection Act 2018.</li>
+              <li><b>Business Hours</b> – 9:00 am to 5:00 pm Monday to Friday, excluding public holidays in England and Wales.</li>
+            </ul>
+          </section>
+
+          <section class="section" id="s3">
+            <h2>3. Platform Role</h2>
+            <p>3.1 The Platform is a marketplace enabling Paralegals and Employers to connect.</p>
+            <p>3.2 Paralete does not provide legal advice or represent either party.</p>
+            <p>3.3 You are an independent contractor, not an employee or agent of Paralete.</p>
+            <p>3.4 Paralete is not responsible for contracts or outcomes between you and Employers. Paralete may, at its discretion, facilitate resolution of certain disputes in accordance with these Terms but shall not act as an arbitrator, fiduciary, or legal adviser.</p>
+          </section>
+
+          <section class="section" id="s4">
+            <h2>4. Eligibility and Account</h2>
+            <p>4.1 You must be 18+ and legally capable.</p>
+            <p>4.2 You warrant you have skills, qualifications, and compliance with applicable laws.</p>
+            <p>4.3 You must keep information accurate and updated.</p>
+            <p>4.4 You are responsible for all activities under your Account.</p>
+            <p>4.5 Paralete may suspend or terminate Accounts for breach or misuse.</p>
+          </section>
+
+          <section class="section" id="s5">
+            <h2>5. Use of Platform</h2>
+            <p>5.1 Use the Platform only for lawful purposes and offering Services.</p>
+            <p>5.2 Prohibited behaviour includes: false information, contacting Employers off-platform to circumvent these terms, interfering with other users or platform functionality, unlawful or discriminatory conduct.</p>
+            <p>5.3 You must comply with all legal, professional, and ethical standards.</p>
+          </section>
+
+          <section class="section" id="s6">
+            <h2>6. Service Engagement</h2>
+            <p>6.1 Employers may post job requests.</p>
+            <p>6.2 The Employer shall submit a proposal via the Platform specifying the scope of Services, estimated timeline for completion, and applicable Fees. The Paralegal may indicate via the Platform whether they are willing to proceed with the proposed Services or reject the proposal.</p>
+            <p>6.3 A legally binding Contract shall be formed directly between the Paralegal and the Employer only upon the Employer’s confirmation through the Platform following the Paralegal’s indication of willingness to proceed. Until such confirmation is given, neither party shall be legally bound.</p>
+            <p>6.4 You must perform Services with due skill, care, and reasonable diligence.</p>
+          </section>
+
+          <section class="section" id="s7">
+            <h2>7. Timesheets, Invoicing and Payment</h2>
+
+            <h3>7.1 Daily Timesheets</h3>
+            <p>The Paralegal shall submit accurate daily Timesheets via the Platform recording all time spent providing the Services.</p>
+            <p>Such Timesheets must be submitted by the end of that working day and, where work continues beyond Business Hours, no later than 1:00 pm on the following Business Day.</p>
+
+            <h3>7.2 Employer Review</h3>
+            <p>Upon submission of a Timesheet, the relevant Employer shall have forty-eight (48) hours to review and either approve the Timesheet or raise a written objection through the Platform.</p>
+
+            <h3>7.3 Objections</h3>
+            <p>Any objection must specify, with reasonable detail, the entries disputed and the grounds for such dispute.</p>
+
+            <h3>7.4 Deemed Acceptance</h3>
+            <p>Failure by the Employer to raise a written objection within forty-eight (48) hours shall constitute deemed acceptance that the time recorded was properly and reasonably incurred.</p>
+
+            <h3>7.5 Paralegal Response</h3>
+            <p>The Paralegal shall respond to any Timesheet objection within twenty-four (24) hours, providing clarification, evidence, or explanation as reasonably required.</p>
+
+            <h3>7.6 Basis of Invoice</h3>
+            <p>Approved or deemed-approved Timesheets shall form the basis of the Paralegal’s monthly invoice.</p>
+
+            <h3>7.7 Monthly Invoice Submission</h3>
+            <p>The Paralegal shall submit an invoice via the Platform within the first three (3) days of the following calendar month in respect of Services performed during the preceding month.</p>
+
+            <h3>7.8 Payment Obligation</h3>
+            <p>Subject to any properly raised dispute, the Employer shall pay the Paralegal’s invoice within seven (7) days of submission via the Platform unless agreed otherwise and in writing with both parties.</p>
+
+            <h3>7.9 Disputed Amounts</h3>
+            <p>Where a dispute has been raised, the Employer shall within the same seven (7) day period pay all undisputed amounts.</p>
+
+            <h3>7.10 Referral to Paralete</h3>
+            <p>Where a Timesheet dispute remains unresolved following the Paralegal’s response, both parties agree that Paralete may review the dispute and provide a written determination based on the information submitted.</p>
+
+            <h3>7.11 Binding Decision</h3>
+            <p>Paralete shall use reasonable endeavours to issue its determination within fourteen (14) days, but shall not be liable for delay.</p>
+
+            <h3>7.12 Effect of Decision</h3>
+            <p>The parties agree to accept Paralete’s determination as contractually binding for payment processing within the Platform only, without prejudice to either party’s right to pursue legal remedies in court.</p>
+
+            <h3>7.13 Payment Following Decision</h3>
+            <p>Following a decision under clause 7.11, the Employer shall pay any amounts determined to be payable within seven (7) days in accordance with the Platform’s payment mechanisms.</p>
+
+            <h3>7.14 Late Payment Interest</h3>
+            <p>Any sums not paid when due shall accrue interest at a rate of 4% per annum above the Bank of England base rate, calculated daily from the due date until payment is made in full.</p>
+
+            <h3>7.15 Suspension for Non-Payment</h3>
+            <p>Where payment is overdue by more than seven (7) days, the Paralegal may suspend further Services until payment is received in full.</p>
+
+            <div class="callout">
+              <b>Note</b>
+              Determinations are for Platform payment processing only and do not prevent either party pursuing legal remedies in court.
+            </div>
+          </section>
+
+          <section class="section" id="s8">
+            <h2>8. Service Delivery and Revisions</h2>
+            <p>8.1 You must deliver Services/deliverables according to the Contract.</p>
+            <p>8.2 Provide reasonable revisions within agreed scope.</p>
+            <p>8.3 Employers must accept or request revisions within a reasonable period or deliverables may be deemed accepted.</p>
+          </section>
+
+          <section class="section" id="s9">
+            <h2>9. Fees and Payments</h2>
+            <p>9.1 Fees are agreed between you and Employer.</p>
+            <p>9.2 Paralete charges a percentage-based Platform Fee on all Fees earned.</p>
+            <p>9.3 All payments relating to Services must be made exclusively via the Platform in accordance with its payment mechanisms.</p>
+            <p>9.4 You are responsible for your taxes, VAT, and filings. You will not be regarded as an employee of Paralete or the Employer.</p>
+          </section>
+
+          <section class="section" id="s10">
+            <h2>10. Non-Circumvention</h2>
+            <p>10.1 You must not solicit or accept work from Employers outside the Platform once introduced.</p>
+            <p>10.2 All precontract communications and transactions must occur on the Platform.</p>
+            <p>10.3 Any attempt to avoid Platform Fees constitutes a breach.</p>
+          </section>
+
+          <section class="section" id="s11">
+            <h2>11. Cancellation and Termination of Contracts</h2>
+            <p>11.1 Contracts may be cancelled as agreed between parties.</p>
+            <p>11.2 If Employer cancels after work begins, you may be entitled to payment for work completed.</p>
+            <p>11.3 If you cancel during an assignment without reasonable notice or justification, the Employer may be entitled to withhold payment for work not properly performed.</p>
+            <p>11.4 Breach may entitle the Employer to terminate.</p>
+          </section>
+
+          <section class="section" id="s12">
+            <h2>12. Confidentiality</h2>
+            <p>12.1 You may receive Employer or third-party Confidential Information.</p>
+            <p>12.2 You must safeguard this and not disclose such information except to fulfil Services to the Employer or as required by law.</p>
+            <p>12.3 Confidentiality survives termination indefinitely.</p>
+          </section>
+
+          <section class="section" id="s13">
+            <h2>13. Data Protection (GDPR)</h2>
+            <p>13.1 You are an independent data controller for personal data you handle.</p>
+            <p>13.2 You must process data lawfully, securely, and only for service delivery.</p>
+            <p>13.3 You must delete or return data on request or contract completion unless legally required to retain.</p>
+            <p>13.4 You must notify the Employer without undue delay and in any event within 24 hours of becoming aware of a data breach.</p>
+          </section>
+
+          <section class="section" id="s14">
+            <h2>14. Intellectual Property</h2>
+            <p>14.1 IP in Deliverables created for Employer transfers to Employer upon full payment, unless both parties agree otherwise.</p>
+            <p>14.2 You retain pre-existing IP and general know-how.</p>
+            <p>14.3 You grant Paralete a limited licence to display non-confidential work samples or profile content on the Platform and/or for general marketing.</p>
+          </section>
+
+          <section class="section" id="s15">
+            <h2>15. Non-Solicitation / Non-Circumvention</h2>
+            <p>15.1 You shall not, for 18 months following the last engagement with any Employer or termination of your Account (whichever is later), directly or indirectly:</p>
+            <ul>
+              <li>(a) engage or attempt to engage with the Employer outside the Platform;</li>
+              <li>(b) solicit or accept work or payment from the Employer outside the Platform;</li>
+              <li>(c) induce the Employer to terminate use of the Platform.</li>
+            </ul>
+            <p>15.2 You agree that a breach of this clause would cause commercial loss to Paralete and that £5,000 represents a genuine pre-estimate of that loss.</p>
+            <p>15.3 Paralete may seek additional damages and injunctive relief.</p>
+          </section>
+
+          <section class="section" id="s16">
+            <h2>16. Warranties</h2>
+            <p>16.1 You warrant: (a) you have full authority to enter these Terms; (b) your Services will be of professional quality; (c) you will not infringe third-party rights.</p>
+            <p>16.2 Paralete disclaims all warranties regarding the performance of others on the Platform.</p>
+          </section>
+
+          <section class="section" id="s17">
+            <h2>17. Liability</h2>
+            <p>17.1 Nothing excludes liability for death, personal injury, or fraud.</p>
+            <p>17.2 Paralete is not liable for loss of profits, data, business, or reputation; the conduct of any Paralegal or Employer; or any indirect or consequential loss.</p>
+            <p>17.3 Subject to applicable law and clause 17, Paralete’s total aggregate liability to you arising out of or in connection with these Terms shall not exceed the total Platform Fees actually received by Paralete from you in the twelve (12) months preceding the event giving rise to the claim.</p>
+          </section>
+
+          <section class="section" id="s18">
+            <h2>18. No Partnership</h2>
+            <p>Nothing in these Terms creates a partnership, joint venture, or fiduciary relationship between Paralete and any Paralegal or Employer.</p>
+          </section>
+
+          <section class="section" id="s19">
+            <h2>19. Indemnity</h2>
+            <p>19.1 You indemnify Paralete and its employees and agents and the Employers against claims arising from your proven breach of these Terms, negligence, or unlawful acts.</p>
+            <p>19.2 This indemnity survives termination.</p>
+          </section>
+
+          <section class="section" id="s20">
+            <h2>20. Termination by Paralete</h2>
+            <p>20.1 Paralete may suspend or terminate your Account immediately if you: (a) breach these Terms or Contract; (b) commit fraud or misconduct; (c) attempt circumvention; (d) damage the Platform or its reputation generally.</p>
+            <p>20.2 Termination does not affect accrued rights.</p>
+          </section>
+
+          <section class="section" id="s21">
+            <h2>21. Dispute Resolution</h2>
+            <p>21.1 You should attempt to resolve disputes directly with Employer.</p>
+            <p>21.2 If the dispute is not resolved between you and the Employer, Paralete may provide a non-judicial determination for administrative purposes. Such determination shall be contractually binding for payment processing within the Platform but shall not restrict either party’s right to pursue legal remedies.</p>
+          </section>
+
+          <section class="section" id="s22">
+            <h2>22. Force Majeure</h2>
+            <p>No party is liable for delays or failure caused by events beyond reasonable control. The affected party/ies must notify and mitigate.</p>
+          </section>
+
+          <section class="section" id="s23">
+            <h2>23. Assignment</h2>
+            <p>23.1 You may not assign these Terms without Paralete’s consent.</p>
+            <p>23.2 Paralete may assign rights and obligations to affiliates or successors.</p>
+          </section>
+
+          <section class="section" id="s24">
+            <h2>24. Notices</h2>
+            <p>24.1 Notices shall be given via email or Platform notifications.</p>
+            <p>24.2 Notices sent during Business Hours shall be deemed received on the same Business Day. Notices sent outside Business Hours shall be deemed received on the next Business Day.</p>
+          </section>
+
+          <section class="section" id="s25">
+            <h2>25. Severability</h2>
+            <p>If any provision or term is invalid, the rest shall remain enforceable.</p>
+          </section>
+
+          <section class="section" id="s26">
+            <h2>26. Waiver</h2>
+            <p>No failure to enforce a right constitutes a waiver.</p>
+          </section>
+
+          <section class="section" id="s27">
+            <h2>27. Entire Agreement</h2>
+            <p>These Terms and related policies form the entire agreement, superseding previous understandings.</p>
+          </section>
+
+          <section class="section" id="s28">
+            <h2>28. Amendments</h2>
+            <p>Paralete may update these Terms by publishing on the Platform. Continued use constitutes acceptance.</p>
+          </section>
+
+          <section class="section" id="s29">
+            <h2>29. Governing Law</h2>
+            <p>These Terms are governed by the laws of England and Wales. The courts of England and Wales have exclusive jurisdiction.</p>
+
+            <div class="accept" id="acceptance">
+              <b>Acceptance</b>
+              <div class="muted" style="margin-top:6px;">
+                By registering as a Paralegal or using the Platform, you confirm you have read, understood, and agree to these Terms.
+              </div>
+            </div>
+          </section>
+
+          <div class="footer">
+            <div class="fineprint">
+              <b>Paralete</b> © <span id="year"></span> — All rights reserved.
+              <span class="muted"> | Terms apply to Paralegals using Paralete.com</span>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn" href="#top">Back to top</a>
+              <button class="btn" type="button" onclick="navigator.clipboard?.writeText(window.location.href).catch(()=>{});">Copy link</button>
+            </div>
+          </div>
+
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll('.toc a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(!el) return;
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        history.replaceState(null, '', id);
+      });
+    });
+  </script>
+</body>
+</html>

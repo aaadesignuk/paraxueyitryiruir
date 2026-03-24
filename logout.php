@@ -1,0 +1,1 @@
+<?php require_once __DIR__.'/app/bootstrap.php'; auth_logout(); flash('Logged out.','info'); redirect('/login.php');
